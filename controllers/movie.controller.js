@@ -1,5 +1,6 @@
 const Movie = require("../models/movie.model");
 const Theatre = require("../models/theatre.model");
+const constants = require("../utils/constants");
 
 
 exports.createMovie = async (req,res) =>{
@@ -26,7 +27,8 @@ exports.getMovie = async (req,res)=>{
     });
 
     movie.occupiedSeats = [1,5,7,9,10,13,21,56,44,33,60];
-    movie.price = Math.floor(Math.random() * (2000 - 500) + 500);
+    movie.price = constants.ticketPrice;
+    
 
     res.status(200).send(movie);
 }

@@ -15,7 +15,8 @@ exports.createBooking = async (req,res)=>{
         userId:user._id,
         timing:req.body.timing,
         noOfSeats:req.body.noOfSeats,
-        totalCost: req.body.noOfSeats * 250
+        totalCost: req.body.noOfSeats * constants.ticketPrice
+        
     };
 
     try{
