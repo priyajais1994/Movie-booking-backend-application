@@ -1,0 +1,929 @@
+{
+	"info": {
+		"_postman_id": "868dec25-6530-49be-8876-352b8babbde6",
+		"name": "Movie booking app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27287174"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "sign in as client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"nidhi123\",\r\n    \"password\" : \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/auth/signin",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign up as client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"name\":\"nidhi\",\r\n    \"email\" :\"nidhi@gmail.com\",\r\n    \"userId\" :\"nidhi123\",\r\n    \"password\" :\"12345\",\r\n    \"userType\" :\"CLIENT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/auth/signup",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign in as admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"userId\" : \"priya123\",\r\n    \"password\" : \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/auth/signin",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign in as  customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"userId\" :\"neha123\",\r\n    \"password\" :\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/auth/signin",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign up as admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"name\":\"priya\",\r\n    \"email\" :\"priya@gmail.com\",\r\n    \"userId\" :\"priya123\",\r\n    \"password\" :\"12345\",\r\n    \"userType\" :\"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/auth/signup",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign up as customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"name\":\"neha\",\r\n    \"email\" :\"neha@gmail.com\",\r\n    \"userId\" :\"neha123\",\r\n    \"password\" :\"12345\",\r\n    \"userType\" :\"CUSTOMER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/auth/signup",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "create a movie only by admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"name\": \"The Kashmir Files\",\r\n        \"description\": \"The Kashmir Files is a 2022 Indian Hindi-language drama film written and directed by Vivek Agnihotri. The film presents a fictional storyline centred around the 1990 exodus of Kashmiri Hindus from Indian-administered Kashmir.\",\r\n        \"casts\": [\r\n            \"Mithun Chakraborty\",\r\n            \"Anupam Kher\"\r\n        ],\r\n        \"trailerUrl\": \"https://www.youtube.com/watch?v=A179apttY58\",\r\n        \"posterUrl\": \"https://upload.wikimedia.org/wikipedia/en/d/d4/The_Kashmir_Files_poster.jpg\",\r\n        \"language\": \"Hindi\",\r\n        \"releaseDate\": \"11-03-2022\",\r\n        \"director\": \"Vivek Agnihotri\",\r\n        \"releaseStatus\": \"RELEASED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/movies",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all movies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjg5MjUwNTQwLCJleHAiOjE2ODkzNzA1NDB9.LRZzHFgStuFZrUj2GsIimKh6HdgWy-n64eMBG3HfY7I",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/movies",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get a movie by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/movies/649ff43de5ed496ae8905162",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"movies",
+								"649ff43de5ed496ae8905162"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update a movie by id only admin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"name\": \"Jalsa\",\r\n    \"description\": \"The Kashmir Files is a 2022 Indian Hindi-language drama film written and directed by Vivek Agnihotri. The film presents a fictional storyline centred around the 1990 exodus of Kashmiri Hindus from Indian-administered Kashmir.\",\r\n    \"casts\": [\r\n        \"Vidya Balan\",\r\n        \"Shefali Shah\"\r\n    ],\r\n    \"trailerUrl\": \"https://www.youtube.com/watch?v=T8GaE3fi3OU\",\r\n    \"posterUrl\": \"https://m.media-amazon.com/images/M/MV5BMTRlNzY5MTEtOTZkZS00ZDEzLTgyN2YtZDJhNDRmMjdkOWI5XkEyXkFqcGdeQXVyNTM1MzM4Nzk@._V1_.jpg\",\r\n    \"language\": \"Hindi\",\r\n    \"releaseDate\": \"18-03-2022\",\r\n    \"director\": \"Suresh Triveni\",\r\n    \"releaseStatus\": \"RELEASED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/movies/649ff43de5ed496ae8905162",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"movies",
+								"649ff43de5ed496ae8905162"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a movie by id only admin",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/movies/64a31e1e50e13cf7d557ff87",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"movies",
+								"64a31e1e50e13cf7d557ff87"
+							],
+							"query": [
+								{
+									"key": "x-access-token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all  theatres for a movie",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjg5MjUwNTQwLCJleHAiOjE2ODkzNzA1NDB9.LRZzHFgStuFZrUj2GsIimKh6HdgWy-n64eMBG3HfY7I",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/movies/649ff43ee5ed496ae8905166/theatres",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"movies",
+								"649ff43ee5ed496ae8905166",
+								"theatres"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "create booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n { \r\n     \"theatreId\" : \"649ff43fe5ed496ae890516b\",\r\n    \"movieId\": \"649ff43de5ed496ae8905162\",\r\n    \"userId\": \"64a011178e9e66ff9558de5a\",\r\n    \"timing\": \"evening\",\r\n    \"noOfSeats\": 3,\r\n    \"totalCost\": 750\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/bookings",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all bookings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/bookings",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get booking by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/bookings/64a017790f39fa40b4a417aa",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"bookings",
+								"64a017790f39fa40b4a417aa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update booking by id only admin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"theatreId\": \"649ff43fe5ed496ae890516b\",\r\n    \"movieId\": \"649ff43de5ed496ae8905162\",\r\n    \"userId\": \"64a011178e9e66ff9558de5a\",\r\n    \"timing\": \"night\",\r\n    \"status\": \"COMPLETED\",\r\n    \"noOfSeats\": 2,\r\n    \"totalCost\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/bookings/64a017790f39fa40b4a417aa",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"bookings",
+								"64a017790f39fa40b4a417aa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel booking by id only customer",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im5laGExMjMiLCJpYXQiOjE2OTAwMTkwMzAsImV4cCI6MTY5MDEzOTAzMH0.f7wplfsNWReCMRY9QajBVRq_kTdRZm19LfOeFZLLWUY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/bookings/64a017790f39fa40b4a417aa/cancel",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"bookings",
+								"64a017790f39fa40b4a417aa",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "theatre",
+			"item": [
+				{
+					"name": "create theatre only by admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"name\": \"FunCinema\",\r\n    \"description\": \"Top class theatre\",\r\n    \"city\": \"Bangalore\",\r\n    \"pinCode\": 562096,\r\n    \"movies\": [\r\n        \"649ff43de5ed496ae8905160\",\r\n        \"649ff43de5ed496ae8905162\",\r\n        \"649ff43ee5ed496ae8905164\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/theatres",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"theatres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all theatre",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/theatres",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"theatres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get theatre by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/theatres/649ff43fe5ed496ae890516b",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"theatres",
+								"649ff43fe5ed496ae890516b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update theatre by id only admin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"name\": \"FunCinema\",\r\n    \"description\": \"Top class theatre\",\r\n    \"city\": \"Bangalore\",\r\n    \"pinCode\": 562096,\r\n    \"movies\": [\r\n        \"649ff43de5ed496ae8905160\",\r\n        \"649ff43de5ed496ae8905162\",\r\n        \"649ff43ee5ed496ae8905164\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/theatres/649ff43fe5ed496ae890516b",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"theatres",
+								"649ff43fe5ed496ae890516b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete theatre by id only admin",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/theatres/64bbe6afd3b928db9a4b2036",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"theatres",
+								"64bbe6afd3b928db9a4b2036"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add movies to theatre by only admin",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "check if movie running in theatre",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "payment",
+			"item": [
+				{
+					"name": "create new payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im5laGExMjMiLCJpYXQiOjE2OTAwMTkwMzAsImV4cCI6MTY5MDEzOTAzMH0.f7wplfsNWReCMRY9QajBVRq_kTdRZm19LfOeFZLLWUY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"bookingId\" : \"64bbe15cd3b928db9a4b2025\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/payments",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all payments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/payments",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get payment by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/payments/64bbe191d3b928db9a4b2029",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"payments",
+								"64bbe191d3b928db9a4b2029"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "update user password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"password\" :\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/users/priya123",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"users",
+								"priya123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user status by userId only admin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"userStatus\" :\"APPROVED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/users/priya123",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"users",
+								"priya123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InByaXlhMTIzIiwiaWF0IjoxNjkwMDMxMDcwLCJleHAiOjE2OTAxNTEwNzB9._OYvONuGw3YT8bPs9-81Qq_aaV3vdCMpW4oMsomnci8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{mbaendpoint}}/mba/api/v1/users",
+							"host": [
+								"{{mbaendpoint}}"
+							],
+							"path": [
+								"mba",
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
